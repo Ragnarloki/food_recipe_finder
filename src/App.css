@@ -1,0 +1,56 @@
+.car{
+  margin-top: 10px;  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.card{
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  
+  
+}
+.button{
+  margin-left: 20px;
+  height: 30px;
+  border-radius: 5px;
+  width: 70px;
+  margin-top: 10px;
+
+}
+.DetailImg{
+  margin: 40px;
+}
+.btn{
+  margin-bottom: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  
+}
+input{
+  margin-top: 20px;
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: none;
+  text-align: center;
+}
+
+.bar{
+  background-color: black;
+  color: white;
+  display: flex;
+  border: none;
+  justify-content: space-between;
+}
+.bar_h1{
+  text-decoration-line: none;
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
