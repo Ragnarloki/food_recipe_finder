@@ -2,6 +2,24 @@ import { createContext, useState } from "react";
 
 export const GlobalContext = createContext(null);
 
+    
+// const  fetchme = async ()=> { 
+
+
+  
+//   .then ( response => {
+//     return response.json();
+//   })	
+  
+//   .then(data =>{
+//     setContainer(data.nameResults.results);
+//     setLoading(false);
+//     console.log(data)
+//   })
+  
+//   .catch (error => {
+//       console.error(error);
+//   })  }
 
 
 export default function Globalstate({children}){
@@ -12,15 +30,21 @@ export default function Globalstate({children}){
     async function submitHandler(event){
         event.preventDefault()
         try{
-            const res =await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${searchParam}`)
+            const res =await     fetch(`https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=under_30_minutes&q=${searchParam}`,{
+                method: await 'GET',
+                headers: {
+                'X-RapidAPI-Key': '50810e21damshe5cdbabe09cb515p11a138jsnfec4fc23f06b',
+		        'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+              }
+            })
              
             const data=await res.json();
-            if(data?.data?.recipes){
-                setRecipeList(data?.data?.recipes)
+            if(data.results){
+                setRecipeList(data.results)
                 setLoading(false)
                 setParam('')
             } 
-            console.log(data);
+            console.log(data.results);
         }
             
         catch(e){

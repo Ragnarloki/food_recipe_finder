@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function Home() {
    
    const {searchParam,setParam,submitHandler} =useContext(GlobalContext);
-      console.log(searchParam);
    const {recipeList,loading} =useContext(GlobalContext)
         
    function onchangeHandler(e){
@@ -30,19 +29,19 @@ function Home() {
       {recipeList && recipeList.length >0?
       <div className='car'>{recipeList.map((item,index)=>
         
-          <>
           
-           <div key={index} className='ca'  style={{width: "18rem"} }>
           
-          <img src={item?.image_url} alt="" width={250} height={300} />
+           <div key={index} className='ca'  style={{width: "18rem",borderRadius:'20px'} }>
           
-          <p className='card-title'>{item?.title}</p>
-          <Link to={`/recipe/${item?.id}`}><button className='btn btn-primary'>recipeDetails</button>
+          <img src={item.thumbnail_url} alt="" width={288} style={{borderRadius:"20px"}} height={300} />
+          
+          <p className='card-title' style={{marginLeft:"4px"}}>{item.name}</p>
+          <Link to={`/recipe/${item.id}`}><button style={{marginLeft:"4px"}} className='btn btn-primary'>recipeDetails</button>
           </Link>
           </div>
           
               
-                   </>
+                   
          
                  )}
                  

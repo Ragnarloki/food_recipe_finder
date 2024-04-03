@@ -9,25 +9,33 @@ function Recipe() {
   console.log(id)
   useEffect(()=>{
     async function getDetails(){
-      const response =await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`)
+      const response =await fetch(`https://tasty.p.rapidapi.com/recipes/get-more-info?id=${id}`,{
+        method: await 'GET',
+        headers: {
+        'X-RapidAPI-Key': '50810e21damshe5cdbabe09cb515p11a138jsnfec4fc23f06b',
+        'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
+      }
+    })
       const data =await response.json();
-      setRecipeDetail(data?.data)
-      console.log(data);
+      setRecipeDetail(data)
+      console.log(data.country);
     }getDetails()
   },[])
+  
   return (
     <div>
-        <img className='DetailImg' src={recipeDetail?.recipe?.image_url} height={350} width={350} alt="" />
+      <h1>name:</h1>
+        {/* <img className='DetailImg' src={recipeDetail.thumbnail_url} height={350} width={350} alt="" />
         <div>
         <div>
           {recipeDetail?.recipe?.ingredients.map((ingredients,index)=>(
-            <ul>
+            <ul key={index}>
 
               <li>{ingredients.description}, quantity:{ingredients.quantity}{ingredients.unit}</li>
             </ul>
           ))}
           </div>
-        </div>
+        </div> */}
     </div>
   )
 }
