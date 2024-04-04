@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { GlobalContext } from './GlobalContext';
 
@@ -18,24 +18,42 @@ function Recipe() {
     })
       const data =await response.json();
       setRecipeDetail(data)
-      console.log(data.country);
+      console.log(data);
     }getDetails()
   },[])
   
   return (
     <div>
-      <h1>name:</h1>
-        {/* <img className='DetailImg' src={recipeDetail.thumbnail_url} height={350} width={350} alt="" />
-        <div>
-        <div>
-          {recipeDetail?.recipe?.ingredients.map((ingredients,index)=>(
+      <div className="container"></div>
+      <div className="row">
+      <div className="col">
+      <img className='DetailImg' src={recipeDetail.thumbnail_url} height={350} width={350} alt="" />
+
+      </div>
+      <div className='col' style={{marginTop:'100px'}}>
+        {recipeDetail.sections[0].components.map((ingre,index)=>(
+          <div key={index}>
+            <ul>
+              <li>{ingre.raw_text}</li>
+            </ul>
+          </div>
+        ))}
+        
+      </div>
+      </div>
+      <div>
+      <h4 style={{display:'flex',justifyContent:'center',margin:'30px',alignContent:'center'}}>{recipeDetail.description}</h4>
+     
+        <div style={{margin:'20px'}}>
+          {recipeDetail.instructions.map((ingredients,index)=>(
             <ul key={index}>
 
-              <li>{ingredients.description}, quantity:{ingredients.quantity}{ingredients.unit}</li>
+              <li>{ingredients.display_text}</li>
             </ul>
           ))}
           </div>
-        </div> */}
+
+        </div>
     </div>
   )
 }

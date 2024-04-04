@@ -26,7 +26,7 @@ export default function Globalstate({children}){
     const [searchParam,setParam] = useState("");
     const [loading,setLoading] =useState(true);
     const[recipeList,setRecipeList] =useState([])
-    const [recipeDetail,setRecipeDetail]=useState(null);
+    const [recipeDetail,setRecipeDetail]=useState([]);
     async function submitHandler(event){
         event.preventDefault()
         try{
