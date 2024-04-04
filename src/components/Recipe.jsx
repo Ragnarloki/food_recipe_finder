@@ -24,13 +24,13 @@ function Recipe() {
   
   return (
     <div>
-      <div className="container"></div>
+      <div className=""></div>
       <div className="row">
       <div className="col">
       <img className='DetailImg' src={recipeDetail.thumbnail_url} height={350} width={350} alt="" />
 
       </div>
-      <div className='col' style={{marginTop:'100px'}}>
+      <div className='col' style={{marginTop:'30px'}}>
         {recipeDetail.sections[0].components.map((ingre,index)=>(
           <div key={index}>
             <ul>
