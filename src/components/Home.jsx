@@ -36,7 +36,7 @@ function Home() {
           <img src={item.thumbnail_url} alt="" width={288} style={{borderRadius:"20px"}} height={300} />
           
           <p className='card-title' style={{marginLeft:"4px"}}>{item.name}</p>
-          <Link to={`/recipe/${item.id}`}><button style={{marginLeft:"4px"}} className='btn btn-primary'>recipeDetails</button>
+          <Link to={`/food_recipe_finder/recipe/${item.id}`}><button style={{marginLeft:"4px"}} className='btn btn-primary'>recipeDetails</button>
           </Link>
           </div>
           

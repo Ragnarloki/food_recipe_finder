@@ -35,18 +35,8 @@ function Recipe() {
       </div>
       <div className='col' style={{marginTop:'30px'}}>
           {loading?<h1>loading...</h1>:
-          <div>{section.length>0?
-            <div>
-            {section.sections[0].components.map((incre,index)=>(
-          
-            <ul key={index} title='INCREDIENTS'>
-              
-                     <li>{incre.raw_text}</li>
-            
-            
-          </ul>
-         
-          )) }</div>: 
+          <div>
+             
           <div >
           <ReactPlayer
             url={section.renditions[0].url}// Replace with your video URL
@@ -54,12 +44,24 @@ function Recipe() {
             width={350} height={350}
             
           />
-        </div>}
+        </div>
             
           </div>}
-        
-        
-      </div>
+        </div>
+        <div>
+        <div className='col'>
+            {section.length==0?<div>
+            {section.sections[0].components.map((incre,index)=>(
+          
+              <ul key={index} title='INCREDIENTS'>
+                
+                       <li>{incre.raw_text}</li>
+              
+              
+            </ul>
+           
+            )) }</div>:null}</div>
+        </div>
       </div>
       <div>
       <h4 style={{display:'flex',justifyContent:'center',margin:'30px',alignContent:'center'}}>{recipeDetail.description}</h4>

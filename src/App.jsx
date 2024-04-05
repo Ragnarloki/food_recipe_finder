@@ -15,7 +15,7 @@ function App() {
            <Routes>
              <Route path='/food_recipe_finder/' element={<Home/>}/>
              <Route path='/favorites' element={<Favorites/>}/>
-             <Route path='/recipe/:id' element={<Recipe/>}/>
+             <Route path='/food_recipe_finder/recipe/:id' element={<Recipe/>}/>
            
            </Routes>
         </Globalstate>  
