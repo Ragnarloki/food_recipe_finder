@@ -7,6 +7,7 @@ function Recipe() {
   const {id} =useParams();
   const {recipeDetail,setRecipeDetail} =useContext(GlobalContext)
   const {loading,setLoading}=useContext(GlobalContext)
+  const [video,setvideo]= useState([])
   console.log(id)
   useEffect(()=>{
     async function getDetails(){
@@ -18,13 +19,15 @@ function Recipe() {
       }
     })
       const data =await response.json();
+      setvideo(data.renditions[0].url)
       setRecipeDetail(data)
+      
       console.log(data);
       setLoading(false)
       console.log(data);
     }getDetails()
   },[])
-  const section = recipeDetail;
+  
   return (
     <div>
       <div className=""></div>
@@ -38,20 +41,23 @@ function Recipe() {
           <div>
              
           <div >
-          <ReactPlayer
-            url={section.renditions[0].url}// Replace with your video URL
-            controls={true}
-            width={350} height={350}
             
-          />
+                 <ReactPlayer
+                 url={video}// Replace with your video URL
+                 controls={true}
+                 width={350} height={350}
+                 
+               />
+            
+          
         </div>
             
           </div>}
         </div>
         <div>
-        <div className='col'>
-            {section.length==0?<div>
-            {section.sections[0].components.map((incre,index)=>(
+        {/* <div className='col'>
+            <div>
+            {section.components.map((incre,index)=>(
           
               <ul key={index} title='INCREDIENTS'>
                 
@@ -60,7 +66,7 @@ function Recipe() {
               
             </ul>
            
-            )) }</div>:null}</div>
+            )) }</div></div> */}
         </div>
       </div>
       <div>
@@ -68,7 +74,7 @@ function Recipe() {
      
         <div style={{margin:'20px'}}>
           {loading?<h1>loading...</h1>:
-          recipeDetail.instructions.map((ingredients,index)=>(
+          recipeDetail?.instructions?.map((ingredients,index)=>(
             <ul key={index}>
 
               <li>{ingredients.display_text}</li>
