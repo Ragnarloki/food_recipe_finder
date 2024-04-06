@@ -18,6 +18,7 @@ function Home() {
     <div>
         <center>
       <form onSubmit={submitHandler}>
+        <center><h1>FOREIGN FOODS ONLY</h1></center>
         <input type="text" value={searchParam} 
         onChange={onchangeHandler}
         placeholder='serch the food name here' width={700} height={300} autoFocus/>
